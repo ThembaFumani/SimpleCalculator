@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SimpleCalculator.ViewModels;
+using SimpleCalculator.Views;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,11 @@ namespace SimpleCalculator
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            CalculatorView view = new CalculatorView();
+            view.DataContext = new CalculatorViewModel();
+            view.Show();
+        }
     }
 }
