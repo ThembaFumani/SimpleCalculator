@@ -191,7 +191,10 @@ namespace SimpleCalculator.ViewModels
                     Initialize();
                     break;
                 case "H":
-                    Display = string.Join(Environment.NewLine, History.Take(5));
+                    if (_history == null)
+                        Display = "There is no history yet";
+                    else
+                        Display = string.Join(Environment.NewLine, History.Take(5));
                     break;
                 case ",":
                     if (_clearDisplay)
