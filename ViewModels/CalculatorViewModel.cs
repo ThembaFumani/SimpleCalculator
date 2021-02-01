@@ -152,17 +152,6 @@ namespace SimpleCalculator.ViewModels
 
         private void OperationButtonClick(string @operator)
         {
-            if (@operator == "%")
-            {
-                Operator = @operator;
-                FirstNumber = _display;
-                _calculator.CalculateResult();
-                Display = Result;
-                History.Add($"{Math.Round(Convert.ToDouble(FirstNumber), 10)}{Operator}={Math.Round(Convert.ToDouble(Result), 10)}");
-
-                return;
-            }
-
             if (FirstNumber == string.Empty || PreviousOperator == "=")
             {
                 FirstNumber = _display;
